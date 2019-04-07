@@ -2,16 +2,14 @@ package com.aca.calculator;
 
 import java.util.Scanner;
 
-public class Calculator1 {
+public class Calculator2 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Type first number");
-        double firstNumber = scanner.nextInt();
-        System.out.println("Type operation");
+        System.out.println("Please type the expression");
+        double firstNumber = Integer.parseInt(scanner.next());
         String operator = scanner.next();
-        System.out.println("Type second number");
-        double secondNumber = scanner.nextInt();
+        double secondNumber = Integer.parseInt(scanner.next());
         double result = calculate(firstNumber, operator, secondNumber);
         System.out.println(String.format("%s %s %s = %s", firstNumber, operator, secondNumber, result));
     }
