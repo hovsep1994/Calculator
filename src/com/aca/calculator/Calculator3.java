@@ -14,10 +14,16 @@ public class Calculator3 {
         // 8
         String subExpressionResult = calculate(mostPrioritizedSubExpression);
         //3 + 8
-        String replace = expression.replace(mostPrioritizedSubExpression, subExpressionResult);
-        //11
-        String result = calculate(replace);
-
+        String finalExpression = expression.replace(mostPrioritizedSubExpression, subExpressionResult);
+        String result;
+        // This check is for two number expression
+        // as if finalExpression is already a number then there is no need to calculate more
+        if (isNumber(finalExpression)) {
+            result = finalExpression;
+        } else {
+            //11
+            result = calculate(finalExpression);
+        }
         System.out.println(expression + " = " + result);
     }
 
@@ -61,6 +67,17 @@ public class Calculator3 {
             }
         }
         return result;
+    }
+
+    static boolean isNumber(String expression) {
+        // Or you can do like this
+        // return str.matches("-?\\d+(\\.\\d+)?");
+        try {
+            Double.parseDouble(expression);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
 }

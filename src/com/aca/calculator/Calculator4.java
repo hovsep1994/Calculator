@@ -15,9 +15,15 @@ public class Calculator4 {
         String subExpressionResult = calculate(mostPrioritizedSubExpression);
         //7 * 2
         String finalExpression = expression.replace(mostPrioritizedSubExpression, subExpressionResult);
-        //14
-        String result = calculate(finalExpression);
-
+        String result;
+        // This check is for two number expression
+        // as if finalExpression is already a number then there is no need to calculate more
+        if (isNumber(finalExpression)) {
+            result = finalExpression;
+        } else {
+            //14
+            result = calculate(finalExpression);
+        }
         System.out.println(expression + " = " + result);
     }
 
@@ -26,12 +32,14 @@ public class Calculator4 {
             return expression.substring(expression.indexOf("("), expression.indexOf(")") + 1);
         }
         String[] split = expression.split(" ");
-        if ("*/".contains(split[1])) {
-            return concatWithSpace(split[0], split[1], split[2]);
-        } else {
-            //4 * 2
-            return concatWithSpace(split[2], split[3], split[4]);
+        if (expression.contains("*") || expression.contains("/")) {
+            for (int i = 0; i < split.length; i++) {
+                if ("*/".contains(split[i])) {
+                    return split[i - 1] + " " + split[i] + " " + split[i + 1];
+                }
+            }
         }
+        return split[0] + " " + split[1] + " " + split[2];
     }
 
     static String calculate(String expression) {
@@ -56,15 +64,15 @@ public class Calculator4 {
         }
     }
 
-    static String concatWithSpace(String... strings) {
-        String result = "";
-        for (int i = 0; i < strings.length; i++) {
-            result += strings[i];
-            if (i != strings.length - 1) {
-                result += " ";
-            }
+    static boolean isNumber(String expression) {
+        // Or you can do like this
+        // return str.matches("-?\\d+(\\.\\d+)?");
+        try {
+            Double.parseDouble(expression);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
-        return result;
     }
 
 }
