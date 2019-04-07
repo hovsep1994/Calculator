@@ -25,12 +25,12 @@ public class Calculator4 {
         if (expression.contains("(")) {
             return expression.substring(expression.indexOf("("), expression.indexOf(")") + 1);
         }
-        String[] s = expression.split(" ");
-        if ("*/".contains(s[1])) {
-            return expression.substring(0, 5);
+        String[] split = expression.split(" ");
+        if ("*/".contains(split[1])) {
+            return concatWithSpace(split[0], split[1], split[2]);
         } else {
             //4 * 2
-            return expression.substring(4);
+            return concatWithSpace(split[2], split[3], split[4]);
         }
     }
 
@@ -54,6 +54,17 @@ public class Calculator4 {
             default:
                 throw new IllegalArgumentException("No such operation");
         }
+    }
+
+    static String concatWithSpace(String... strings) {
+        String result = "";
+        for (int i = 0; i < strings.length; i++) {
+            result += strings[i];
+            if (i != strings.length - 1) {
+                result += " ";
+            }
+        }
+        return result;
     }
 
 }
