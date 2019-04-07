@@ -14,9 +14,9 @@ public class Calculator4 {
         // 7
         String subExpressionResult = calculate(mostPrioritizedSubExpression);
         //7 * 2
-        String replace = expression.replace(mostPrioritizedSubExpression, subExpressionResult);
+        String finalExpression = expression.replace(mostPrioritizedSubExpression, subExpressionResult);
         //14
-        String result = calculate(replace);
+        String result = calculate(finalExpression);
 
         System.out.println(expression + " = " + result);
     }
