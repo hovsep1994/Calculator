@@ -23,5 +23,5 @@ Asks for a string expression like (“ 12.1 * 4 * 4 / 3.5 - 1 + 3 * 6 ”) * and
 Asks for a string expression like (“ 12.1 * 4 * (4 / (( 3.5 - 1 ) + 3)) * 6“) 
 Should work as in math (brackets first that * or / and only that + or -)
 
-Link to excersice description:
+Link to excersice description:<br>
 https://docs.google.com/document/d/18-zMHM2jEV-7DhszZFhvnIuL1Pq7WpuuAx7bWZGEiyY/edit
