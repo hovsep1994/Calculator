@@ -22,3 +22,6 @@ Asks for a string expression like (“ 12.1 * 4 * 4 / 3.5 - 1 + 3 * 6 ”) * and
 6. Write a command line calculator which works as following. (With brackets and expression can be long)
 Asks for a string expression like (“ 12.1 * 4 * (4 / (( 3.5 - 1 ) + 3)) * 6“) 
 Should work as in math (brackets first that * or / and only that + or -)
+
+Link to excersice description:
+https://docs.google.com/document/d/18-zMHM2jEV-7DhszZFhvnIuL1Pq7WpuuAx7bWZGEiyY/edit
